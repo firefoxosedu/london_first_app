@@ -105,12 +105,14 @@ h2 {
 
 #flux-capacitor {
   background: url('images/flux.png');
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
 }
 
 #qr-reader {
-  background: white url('images/qr.png') no-repeat;
+  background: white url('images/qr.png');
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
 }
