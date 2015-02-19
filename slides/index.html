@@ -29,21 +29,55 @@
   </head>
   <body style="display: none" class="loaded">
     <section class="slides layout-regular template-default">
-      <!-- Your slides (<article>s) go here. Delete or comment out the
-           slides below. -->
       <article class="biglogo">
       </article>
 
-      <article class="far-past">
+      <article>
         <h1>
-          Basic app from the scratch
+          Create your first app
         </h1>
+        <h3>From scratch to FirefoxOS</h3>
+        <br>
         <p>
-          https://github.com/firefoxosedu/basic_app
+          https://github.com/firefoxosedu/london_first_app
         </p>
       </article>
 
-      <article class="past">
+      <article>
+        <h3>
+          Schedule
+        </h3>
+        <div class="centered-list">
+          <ul>
+            <li>18:30 Listen</li>
+            <li>19:00 Get energy</li>
+            <li>19:30 Code until kicked out</li>
+            <li>...</li>
+            <li>23:00 please let us go to sleep</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <section id="borja" class="profile">
+          <strong>Borja Salguero (<a href="https://twitter.com/borjasalguero">@borjasalguero</a>)</strong>
+          <br>
+          <p>
+            FirefoxOS Frontend Engineer.
+            Web technologies passionate and Vespa enthusiast.
+          </p>
+        </section>
+        <section id="fernando" class="profile">
+          <strong>Fernando Campo (<a href="https://twitter.com/ferkhamp">@ferkhamp</a>)</strong>
+          <br>
+          <p>
+            HTML5 &amp; Mobile Dev. Extremely curious.
+            Specialist in getting injured on any sport.
+          </p>
+        </section>
+      </article>
+
+      <article>
         <h1>
           Partnership
         </h1>
@@ -52,118 +86,346 @@
         </p>
       </article>
 
-      <article class="current">
-        <section id="borja" class="profile">
-          <strong>Borja Salguero (@borjasalguero)</strong><br>
-          FirefoxOS Frontend Engineer. Web technologies passionate and Vespa enthusiast.
-        </section>
-        <section id="francisco" class="profile">
-          <strong>Francisco Jordano (@mepartoconmigo)</strong><br>
-          Metal head \m/. FirefoxOS addict. Software handcrafter.
-        </section>
-      </article>
-
-      <article class="next">
+      <article>
         <h1>
-          What is an app?
+          What's an app?
         </h1>
         <p>
-          HTML + JS + CSS + Manifest
+          HTML + JS + CSS [+ Manifest]
         </p>
       </article>
 
-      <article class="far-next">
-        <h1>
-          Is a standard?
-        </h1>
-        <p>
-          http://w3c.github.io/manifest/
-        </p>
-      </article>
-
-      <article class="">
+      <article>
         manifest.webapp
-        <pre class="prettyprint">
-        {
-          "name": "FirefoxOSApp",
-          "description": "Basic app",
+        <pre class="prettyprint">       {
+          "name": "MyFirstApp",
           "launch_path": "/index.html",
-          "orientation": "portrait",
           "developer": {
-            "name": "Borja Salguero &amp; Francisco Jordano",
-            "url": "https://github.com/firefoxosedu"
-          },
-          "permissions": {
-            "desktop-notification":{}
+            "name": "Borja Salguero",
+            "url": "https://github.com/firefoxosedu/appName"
           },
           "icons": {
             "128": "/icons/128.jpg",
             "60": "/icons/60.jpg"
+          },
+          "type": "certified",
+          "permissions": {
+            "contacts":{ "access": "readonly" },
+            "settings":{ "access": "readwrite" },
+            "desktop-notification":{}
           }
-        }
+        }</pre>
+      </article>
+
+      <article>
+        <h1>
+          NOT a standard
+        </h1>
+        <p>but a W3C draft on the go</p>
+        <p><a>http://w3c.github.io/manifest/</a></p>
+      </article>
+
+      <article>
+        <h3>When is it needed?</h3>
+        <div class="centered-list">
+          <ul>
+            <li>Access to special APIs</li>
+            <li>Want to install it</li>
+            <li>Communicate with other apps</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h1>Type of Apps</h1>
+        <p>Hosted VS Packaged</p>
+      </article>
+
+      <article>
+        <p><strong>HOSTED</strong></p>
+        <div class="centered-list">
+          <ul>
+            <li>web server</li>
+            <li>resources online</li>
+            <li>basic permissions</li>
+            <li>behaves like a bookmark with memory</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <p><strong>PACKAGED</strong></p>
+        <div class="centered-list">
+          <ul>
+            <li>resources on a .zip file</li>
+            <li>special permissions</li>
+            <li>fully installed on device</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h1>Access Level</h1>
+        <p>Web / Privileged / Certified</p>
+      </article>
+
+      <article>
+        <p><strong>Web</strong></p>
+        <div class="centered-list">
+          <ul>
+            <li>access to web APIs</li>
+            <li>HOSTED apps only get this level</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <p><strong>Privileged</strong></p>
+        <div class="centered-list">
+          <ul>
+            <li>"privileged" type on manifest</li>
+            <li>special permissions</li>
+            <li>install through trusted origin</li>
+            <li>update through same Market</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <p><strong>Certified</strong></p>
+        <div class="centered-list">
+          <ul>
+            <li>"certified" type on manifest</li>
+            <li>restricted permissions</li>
+            <li>pre built on device</li>
+            <li>update with FOTA</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h1>Web APIs</h1>
+        <p>Extend the functionality of the browser</p>
+        <p>for Firefox <a>https://wiki.mozilla.org/WebAPI#APIs</a></p>
+      </article>
+
+      <article>
+        API: Battery
+        <pre class="prettyprint">
+// First, get the object
+var battery = navigator.mozBattery;
+
+// Check the current level
+var batteryLevel = battery.level * 100 + "%";
+
+// Listen to events
+battery.addEventLister("levelchange", setStatus, false);
+battery.addEventLister("chargingchange", setStatus, false);
         </pre>
       </article>
 
-      <article class="">
+      <article>
+        API: Messages
+        <pre class="prettyprint">
+var mozSMS = navigator.mozMobileMessage;
+var requests = mozSMS.send(['+0785436293672'], 'Beer anyone?');
+
+requests.forEach(function(request, idx) {
+  request.onsuccess = function() {
+    alert('SMS Sent');
+  };
+  request.onerror = function() {
+    alert('Error while sending the SMS');
+  };
+});
+        </pre>
+      </article>
+
+      <article>
+        <h1>Communicating with other apps</h1>
+        <p><a>https://developer.mozilla.org/en-US/docs/Web/API/Web_Activities</a></p>
+      </article>
+
+      <article>
         <h1>
-          Where is the manifest file?
+          NOT a standard
+        </h1>
+        <p>just a W3C note</p>
+        <p><a>http://www.w3.org/TR/web-intents/</a></p>
+      </article>
+
+      <article>
+        WebActivities: manifest.webapp
+        <pre class="prettyprint">{
+  ...
+  "activities": {
+    "pick": {
+      "href": "/handler.html",
+      "disposition": "window",
+      "filters": {
+        "type": ["image/*","image/jpeg","image/png"]
+      },
+      "returnValue": true
+    }
+  }
+  ...
+}       </pre>
+      </article>
+
+      <article>
+        WebActivities: provider
+        <pre class="prettyprint">navigator.mozSetMessageHandler('activity', function(activityRequest) {
+  var option = activityRequest.source;
+
+  if (option.name === "pick") {
+    // Do something to handle the activity
+    ...
+
+    // Send back the result
+    if (picture) {
+      activityRequest.postResult(picture);
+    } else {
+      activityRequest.postError("Unable to provide a picture");
+    }
+  }
+});     </pre>
+      </article>
+
+      <article>
+        WebActivities: consumer
+        <pre class="prettyprint">var activity = new MozActivity({
+  name: "pick",
+  data: {
+    type: "image/jpeg"
+  }
+});
+
+activity.onsuccess = function() {
+  var picture = this.result;
+  console.log("A picture has been retrieved");
+};
+
+activity.onerror = function() {
+  console.log(this.error);
+};      </pre>
+      </article>
+
+      <article class="current">
+        <h1>
+          ...no user involved?
         </h1>
         <p>
-          In the root folder of your app!
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.mozSetMessageHandler">SystemMessages</a>
+           &amp;
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/MessagePort.postMessage">InterApp Communication</a>
         </p>
       </article>
 
-      <article class="">
+      <article>
+        <h1>OFFLINE</h1>
+        <p>the tube dilemma</p>
+      </article>
+
+      <article>
+        <p>Different approaches</p>
+        <div class="centered-list">
+          <ul>
+            <li>Cookies [cookies!!]</li>
+            <li>Local Storage [synchronous]</li>
+            <li>IndexedDB [not an easy API]</li>
+            <li>DataStore API [certified only]</li>
+            <li>AppCache [your little piece of hell]</li>
+            <li>Service Workers??</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="far-past">
+        <h1>
+          Let's crack on!
+        </h1>
+        <p>
+          From scratch to your first MVP in one evening
+        </p>
+      </article>
+
+      <article>
         <h1>
           Type of apps
         </h1>
         <p>
-          Hosted vs Packaged
+          Self-contained vs Content-based
         </p>
       </article>
 
-      <article class="">
+      <article>
         <h1>
-          Packaged apps
+          Self-contained
         </h1>
         <p>
-          Privileged vs Certified
+          QR Reader, Camera, Retrica, Calculator...
         </p>
       </article>
 
-      <article class="">
+      <article>
         <h1>
-          Permissions
+          Based on content
         </h1>
         <p>
-          Name of the permission &amp; level
+          Twitter, Facebook, Citymapper...
         </p>
       </article>
 
-      <article class="">
+      <article>
         <h1>
-          Launch patch
+          Some interesting apps
         </h1>
         <p>
-          Defines the entry point of your app
+          From Push to WebRTC, everything is Web.
         </p>
       </article>
 
-      <article class="">
+      <article id="flux-capacitor">
+
+      </article>
+
+      <article id="qr-reader">
+
+      </article>
+
+      <article>
         <h1>
-          Activities &amp; Messages
+          QR Reader
         </h1>
         <p>
-          Defines how to communicate with other apps
+          https://github.com/firefoxosedu/qr_reader_incomplete
         </p>
       </article>
 
-      <article class="">
+      <article>
         <h1>
-          Need more info?
+          MVP
         </h1>
         <p>
-          https://developer.mozilla.org/en-US/Apps/Build/Manifest
+          Time for a brainstorm!
+        </p>
+      </article>
+
+      <article>
+        <h1>
+          Feedback
+        </h1>
+        <p>
+          Let's check how was your first day as Firefox OS developers!
+        </p>
+      </article>
+
+      <article>
+        <h1>
+          Time for voting
+        </h1>
+        <p>
+          Which idea do you like most?
         </p>
       </article>
 

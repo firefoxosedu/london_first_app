@@ -102,3 +102,15 @@ h2 {
 #red-heart {
   color: #FF4E00;
 }
+
+#flux-capacitor {
+  background: url('images/flux.png');
+  background-position: center center;
+  background-size: 100%;
+}
+
+#qr-reader {
+  background: url('images/qr.png');
+  background-position: center center;
+  background-size: 100%;
+}
