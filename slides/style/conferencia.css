@@ -110,7 +110,7 @@ h2 {
 }
 
 #qr-reader {
-  background: url('images/qr.png');
+  background: white url('images/qr.png') no-repeat;
   background-position: center center;
   background-size: 100%;
 }
