@@ -71,7 +71,7 @@
           <strong>Fernando Campo (<a href="https://twitter.com/ferkhamp">@ferkhamp</a>)</strong>
           <br>
           <p>
-            HTML5 & Mobile Dev. Extremely curious.
+            HTML5 &amp; Mobile Dev. Extremely curious.
             Specialist in getting injured on any sport.
           </p>
         </section>
@@ -174,6 +174,7 @@
         <div class="centered-list">
           <ul>
             <li>access to web APIs</li>
+            <li>HOSTED apps only get this level</li>
           </ul>
         </div>
       </article>
@@ -198,6 +199,143 @@
             <li>restricted permissions</li>
             <li>pre built on device</li>
             <li>update with FOTA</li>
+          </ul>
+        </div>
+      </article>
+
+      <article>
+        <h1>Web APIs</h1>
+        <p>Extend the functionality of the browser</p>
+        <p>for Firefox <a>https://wiki.mozilla.org/WebAPI#APIs</a></p>
+      </article>
+
+      <article>
+        API: Battery
+        <pre class="prettyprint">
+// First, get the object
+var battery = navigator.mozBattery;
+
+// Check the current level
+var batteryLevel = battery.level * 100 + "%";
+
+// Listen to events
+battery.addEventLister("levelchange", setStatus, false);
+battery.addEventLister("chargingchange", setStatus, false);
+        </pre>
+      </article>
+
+      <article>
+        API: Messages
+        <pre class="prettyprint">
+var mozSMS = navigator.mozMobileMessage;
+var requests = mozSMS.send(['+0785436293672'], 'Beer anyone?');
+
+requests.forEach(function(request, idx) {
+  request.onsuccess = function() {
+    alert('SMS Sent');
+  };
+  request.onerror = function() {
+    alert('Error while sending the SMS');
+  };
+});
+        </pre>
+      </article>
+
+      <article>
+        <h1>Communicating with other apps</h1>
+        <p><a>https://developer.mozilla.org/en-US/docs/Web/API/Web_Activities</a></p>
+      </article>
+
+      <article>
+        <h1>
+          NOT a standard
+        </h1>
+        <p>just a W3C note</p>
+        <p><a>http://www.w3.org/TR/web-intents/</a></p>
+      </article>
+
+      <article>
+        WebActivities: manifest.webapp
+        <pre class="prettyprint">{
+  ...
+  "activities": {
+    "pick": {
+      "href": "/handler.html",
+      "disposition": "window",
+      "filters": {
+        "type": ["image/*","image/jpeg","image/png"]
+      },
+      "returnValue": true
+    }
+  }
+  ...
+}       </pre>
+      </article>
+
+      <article>
+        WebActivities: provider
+        <pre class="prettyprint">navigator.mozSetMessageHandler('activity', function(activityRequest) {
+  var option = activityRequest.source;
+
+  if (option.name === "pick") {
+    // Do something to handle the activity
+    ...
+
+    // Send back the result
+    if (picture) {
+      activityRequest.postResult(picture);
+    } else {
+      activityRequest.postError("Unable to provide a picture");
+    }
+  }
+});     </pre>
+      </article>
+
+      <article>
+        WebActivities: consumer
+        <pre class="prettyprint">var activity = new MozActivity({
+  name: "pick",
+  data: {
+    type: "image/jpeg"
+  }
+});
+
+activity.onsuccess = function() {
+  var picture = this.result;
+  console.log("A picture has been retrieved");
+};
+
+activity.onerror = function() {
+  console.log(this.error);
+};      </pre>
+      </article>
+
+      <article class="current">
+        <h1>
+          ...no user involved?
+        </h1>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.mozSetMessageHandler">SystemMessages</a>
+           &amp;
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/MessagePort.postMessage">InterApp Communication</a>
+        </p>
+      </article>
+
+      <article>
+        <h1>OFFLINE</h1>
+        <p>the tube dilemma</p>
+      </article>
+
+      <article>
+        <p>Different approaches</p>
+        <div class="centered-list">
+          <ul>
+            <li>Cookies [cookies!!]</li>
+            <li>Local Storage [synchronous]</li>
+            <li>IndexedDB [not an easy API]</li>
+            <li>DataStore API [certified only]</li>
+            <li>AppCache [your little piece of hell]</li>
+            <li>Service Workers??</li>
           </ul>
         </div>
       </article>
